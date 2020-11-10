@@ -4,6 +4,8 @@ RUN mkdir /tmp/src
 WORKDIR /tmp/src
 
 ADD package.json package-lock.json .
+RUN npm install
+
 ADD .git/ .git
 ADD profiles/ profiles
 ADD static/ static/
@@ -12,7 +14,6 @@ ADD scripts/ scripts
 ADD src/ src
 ADD .eslintrc.yml .stylelintrc.json .babelrc .
 
-RUN npm install
 RUN npm run build-dev
 
 FROM quay.io/app-sre/nginx:latest
