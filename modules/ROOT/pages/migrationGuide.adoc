@@ -1,4 +1,4 @@
-:fedrated: https://webpack.js.org/concepts/module-federation/
+:federated: https://webpack.js.org/concepts/module-federation/
 = Chrome 2.0 migration guide
 
 Since we are enabling federated modules in chrome apps need to adapt to this
@@ -13,12 +13,12 @@ This migration update consists of 4 steps:
 . Change exporting of your app
 . Add module path to cloudservices config
 
-=== Update version of related packages
+== Update version of related packages
 
 In order to fully use federated modules you have to update the version of these
 packages:
 
-[code]
+[source]
 ----
 * webpack: >= 5.9.0
 * webpack-cli: >= 4.2.0
@@ -33,7 +33,7 @@ And change your prod/start scripts (webpack now uses different script to run dev
 "start": "NODE_ENV=development webpack serve --config config/dev.webpack.config.js",
 ----
 
-=== Add federated modules plugin
+== Add federated modules plugin
 
 With all packages updated and installed you should be on good way to fully use
 new chrome, you just have to enable {federated}[federated modules].
@@ -93,7 +93,7 @@ generate fed-modules.json file. Also change your app's config in
 cloudservices-config so we know what module to use the convention is
 `ref1=ref3`
 
-=== Change exporting of your app
+== Change exporting of your app
 
 Once you register new federated module you will have to shuffle the way how you
 export your application.
@@ -140,7 +140,7 @@ import App from './AppEntry';
 ReactDOM.render(<App />, document.getElementById('root'));
 ----
 
-=== Add module path to cloudservices config
+== Add module path to cloudservices config
 
 In order for chrome to know how to bootstrap your app you have to indicate what
 module is used to this action. You have 2 options how to register new chrome
@@ -165,7 +165,7 @@ module:
   fileName: 'js/folder/manifest.json' = optional, if you are building custom manifest
 ----
 
-=== Notes
+== Notes
 
 If you are using predefined module federation plugin we expect that you created
 `AppEntry` and exported your application as default export. However you can
@@ -185,7 +185,7 @@ be usefull for sharing some of your code with other apps as well, we have
 plugin that generates manifest for us just don't forget to add `modules:
 LIST_OF_YOUR_MODULES ]` when using shared config.
 
-== Not using shared config
+=== Not using shared config
 
 If you are not using shared config you have to also generate manifest for
 chrome so we know where to load the app's bootstrap file.
