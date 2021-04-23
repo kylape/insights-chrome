@@ -1,13 +1,17 @@
-# Error Handling with Sentry
+:sentry: https://sentry.io/welcome/
+:throw: https://docs.sentry.io/error-reporting/capturing/?platform=javascript
 
-This project captures events with [Sentry.io](https://sentry.io/welcome/).
+= Error Handling with Sentry
 
-Out of the box, we capture all fatal errors. We also provide Sentry to developers so they can [throw their own errors](https://docs.sentry.io/error-reporting/capturing/?platform=javascript).
+This project captures events with {sentry}[Sentry.io].
+
+Out of the box, we capture all fatal errors. We also provide Sentry to
+developers so they can {throw}[throw their own errors].
 
 ## Sentry object spec
 
-``` js
-
+[source,js]
+----
     Sentry.init({
         dsn: API_KEY, // API key
         environment: `Prod${appDetails.beta}`, // We only want to init on Prod and prod-beta
@@ -38,4 +42,4 @@ Out of the box, we capture all fatal errors. We also provide Sentry to developer
             browser_width: window.innerWidth + ' px'
         });
     });
-```
+----

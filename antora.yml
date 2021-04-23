@@ -1,0 +1,5 @@
+name: insights-chrome
+title: Insights Chrome
+version: dev
+nav:
+- modules/ROOT/readme.adoc
